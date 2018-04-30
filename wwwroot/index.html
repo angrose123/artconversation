@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="scripts/NLPsent.js"></script>      
+        <script type="text/javascript" src="scripts/compromise-master/builds/compromise.min.js"></script>        
+        <script type="text/javascript" src="scripts/paper/docs/assets/js/paper.js"></script>
+        
+        <script type="text/javascript" src="global.js"></script>
+        <script type="text/paperscript" src="art.js" canvas="myCanvas"></script>
+        <script type="text/javascript" src="text.js" ></script>
+ 
+         <style>
+            #wrapper {
+                width: 1250px;
+                height: 750px;
+                position:relative;
+            }
+            #divInput {
+                width:250px;
+                height: 750px;
+            }
+            #divOutput {
+
+                position:absolute;
+                top:0;
+                left:250px;
+                width:800px;
+                height: 750px;
+            }
+            #divChoices {
+                position:absolute;
+                top:0;
+                left:1050px;
+                width: 200px;
+                height: 750px;
+            }
+            
+            #myCanvas {
+                width: 750px;
+                height: 750px;
+            }
+        </style>    
+        
+     </head>
+    
+    <body>
+
+        	<p style= "color:red; font-size:20px; font-family: Hollywood Hills, sans-serif" >Art of Conversation</p>
+        <div id="wrapper" >
+            <div id="divInput">
+                <textarea id="txtInput" rows="20" cols="40">
+                    The past year had taken a heavy toll on Steve, but he didn't appreciate seeing proof in the mirror. His usually sharp blue eyes looked hazy and drawn tonight. A dark stubble was shrouding his strong jaw and dimpled chin. Around his temples, the gray highlights were advancing, making their way deeper into his thicket of coarse black hair. Although his female colleagues insisted the gray only accentuated his bookish appeal, Langdon knew better.
+                </textarea><br/>
+            	<input type="button" onclick="javascript: getNLP();" name="btnNLP" value="Get NLP Stats"></input>
+            	<input type="button" onclick="javascript:alert(getSentiment(document.getElementById('txtInput').value));" name="btnNLP" value="Get Sentiment"></input>
+                <!-- 1: add Clear button calling the function clearArt -->
+                <input type="button" onClick="javascript:clearArt();" name="btnClear" value="Clear"></input>
+                <!-- 2: add Draw Text button calling the function drawText -->
+                <input type="button" onClick="javascript:drawText();" name="btnDrawText" value="Draw Text"></input>
+                <!-- 3: add div tag with the id nlpTime -->
+                <div id="nlpTime">Time will go here</div>
+                <div id="nlpStats">Stats will go here</div>
+    
+            </div>
+            <div id="divOutput">
+                <canvas id="myCanvas"></canvas>
+            </div>
+            <div id="divChoices">
+                <p style= "color:black; font-size:20px; font-family: Hollywood Hills, sans-serif" >Styling</p>
+                <!-- 4: add input of type number called numAlgo and default to 0 -->
+                <input type="number" id="numAlgo" value="0"></input>
+                <!-- 5: add input of type number called numPoints and default to 0 -->
+                <input type="number" id="numPoints" value="0"></input>
+                <!-- 6: add an select tag called optColors -->
+                <select id="optColors"></select>
+            </div>    
+        </div>     	
+    </body>
+</html>
